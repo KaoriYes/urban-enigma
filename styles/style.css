@@ -29,6 +29,12 @@ body {
   background-color: #ffffff;
   }
 
+@media (width < 600px) {
+  body {
+    padding: 0;
+    }
+  }
+
 header span {
   display: block;
   width: 5rem;
@@ -50,6 +56,7 @@ header span {
 
 main {
   width: 80vw;
+  min-width: 250px;
   height: 100vh;
   margin: 0 auto;
   /* background: yellow; */
@@ -59,10 +66,19 @@ main .top-side-information {
   columns: 2;
   }
 
+@media (width < 600px) {
+  main {
+    width: 100%;
+    }
+  
+  main .top-side-information {
+    columns: 1;
+    }
+    
+  }
 
 main form {
   width: 100%;
-  
   }
 
 
@@ -70,7 +86,17 @@ main form > fieldset:not(legend) > * {
   margin: 0 0 0 4rem;
   }
 
+@media (width < 600px) {
+  main form > fieldset:not(legend) > * {
+    margin: 0 0 0 2px;
+    }
+  }
+
 /* form big question ||  largest fieldset indication */
+main form > fieldset {
+  /* padding: 0 8px 0 4px; */
+  }
+
 main form > fieldset legend {
   width: 100%;
   margin: 2rem 0;
@@ -80,9 +106,21 @@ main form > fieldset legend {
   background-color: var(--cc-black-10);
   }
 
+@media (width < 600px) {
+  main form > fieldset legend {
+    font-size: .9em;
+    }
+  }
+
 main form > fieldset legend .question-indicator {
   position: relative;
   padding-right: 2rem;
+  }
+
+@media (width < 600px) {
+  main form > fieldset legend .question-indicator {
+    padding-right: 3%;
+    }
   }
 
 main form > fieldset legend .question-indicator:after {
@@ -100,6 +138,12 @@ main form > fieldset > .question-small {
   margin: 1rem 0 0 4rem;
   }
 
+@media (width < 600px) {
+  main form > fieldset > .question-small {
+    margin: 2px 0 0 8px;
+    }
+  }
+
 main form > fieldset > .question-small legend {
   max-width: 75%;
   margin: 0;
@@ -109,6 +153,13 @@ main form > fieldset > .question-small legend {
   background-color: transparent;
   }
 
+@media (width < 600px) {
+  main form > fieldset > .question-small legend {
+    max-width: 100%;
+    }
+  }
+
+
 main form > fieldset > fieldset.question-small {
   position: relative;
   }
@@ -117,6 +168,12 @@ main form > fieldset > fieldset.question-small legend .question-indicator {
   position: absolute;
   left: -4rem;
   padding: 0 .5rem;
+  }
+
+@media (width < 600px) {
+  main form > fieldset > fieldset.question-small legend .question-indicator {
+    left: -32px;
+    }
   }
 
 main form > fieldset > fieldset.question-small legend .question-indicator:after {

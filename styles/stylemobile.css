@@ -1,0 +1,28 @@
+@font-face {
+  font-family: NS sans;
+  src: url("./fonts/nssans-regular.woff2");
+  font-weight: 500;
+  }
+
+@font-face {
+  font-family: NS sans;
+  src: url("./fonts/nssans-bold.woff2");
+  font-weight: 700;
+  }
+
+@font-face {
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./fonts/MaterialIcons-Regular.ttf") format("truetype")
+  }
+
+
+body {
+  padding: 3rem 10vw 1.5rem;
+  font-family: NS Sans, Segoe UI, Myriad, Verdana, sans-serif;
+  line-height: 1.5625rem;
+  color: #070721;
+  background-color: var(--cc-white);
+  }
