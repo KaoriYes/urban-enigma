@@ -57,3 +57,23 @@ main .top-side-information {
 main form > fieldset > fieldset legend .question-indicator {
   margin-right: .5rem;
   }
+
+main form > fieldset > .question-small legend {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  color: var(--cc-black-10);
+  }
+
+main form > fieldset > fieldset > label.radio-check-box {
+  margin: 0 .25rem;
+  padding: .5rem .75rem;
+  background-color: var(--cc-primary-contrast-color);
+  border: 1px solid var(--cc-primary-color);
+  }
+
+main form > fieldset > fieldset > label.radio-check-box:hover,
+main form > fieldset > fieldset > label:has(input[type="radio"]:checked) {
+  background-color: var(--cc-primary-color-opacity-20);
+  border: 1px solid var(--cc-primary-color);
+  }
