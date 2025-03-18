@@ -110,6 +110,15 @@ main form > fieldset > fieldset legend .question-indicator {
     color: var(--nes-color-text-heading);
 }
 
+/* Required Indicator*/
+main form > fieldset > fieldset.single-question-required > legend::after,
+main form > fieldset > fieldset label.input-non-radio.required span::after {
+    content: "*";
+    color: var(--nes-color-form-error);
+    margin-left: 4px;
+}
+
+
 /* Radio- Checkboxes */
 
 main form > fieldset > fieldset > div.radio-check-box-container {
@@ -128,7 +137,7 @@ main form > fieldset > fieldset > div.radio-check-box-container label.radio-chec
     background-color: var(--cc-primary-contrast-color);
     /*border: 1px solid var(--cc-primary-color);*/
     border-radius: .25rem;
-    width: 13rem;
+    width: 100%;
     color: var(--nes-color-text-heading);
 
 }

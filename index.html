@@ -48,7 +48,7 @@
                     detoelichting invullen. Neem de uitkomst van die rekenhulp over in dit
                     formulier. Bewaar de ingevulde rekenhulp(en). Wij kunnen u daar om vragen.</p>
             </div>
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12a</span>Zijn er personen, erkende doelen of instellingen die
                     gebruik willen maken van de
@@ -81,7 +81,7 @@
                 <!--Schrijf op iedere kopie het burgerservicenummer van de overledene</p>-->
                 <div>
                     <label class="input-non-radio required">
-                        Burgerservicenummer/RSIN/fiscaal identificatienummer van de onderneming
+                        <span>Burgerservicenummer/RSIN/fiscaal identificatienummer van de onderneming</span>
                         <input data-1p-ignore id="bsn"
                                name="bsn"
                                required
@@ -90,7 +90,9 @@
                 </div>
                 <div>
                     <label class="input-non-radio required">
+                        <span>
                         Naam van de onderneming
+                        </span>
                         <input data-1p-ignore name="naam-onderneming"
                                required
                                type="text">
@@ -98,7 +100,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12c</span> Is er een vooroverleg geweest met de Belastingdienst
                     over de bedrijfsopvolgingsregeling?
@@ -120,7 +122,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12d</span> Had de overledene de onderneming minimaal 1 jaar in
                     bezit?
@@ -142,7 +144,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12e</span> Wordt de onderneming binnen 2 jaar na overlijden anders verdeeld dan volgens het testament
                     of de wettelijke verdeling?
@@ -164,7 +166,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12f</span> Is er sprake van beleggingsvermogen?
                 </legend>
@@ -196,20 +198,20 @@
             </fieldset>
 
 
-            <fieldset class="question-small">
+            <fieldset class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12g</span> <strong>Ter beschikking gesteld pand</strong>
                 </legend>
                 <p>Horen er 1 of meer ter beschikking gestelde panden bij het ondernemingsvermogen?</p>
                 <div class="radio-check-box-container">
-                    <label class="radio-check-box">
+                    <label class="radio-check-box required">
                         Nee<span class="remove-JS">. Ga verder met vraag 12k</span>
                         <input data-1p-ignore name="meerdere-panden"
                                required
                                type="radio"
                                value="no">
                     </label>
-                    <label class="radio-check-box">
+                    <label class="radio-check-box required">
                         Ja
                         <input data-1p-ignore name="meerdere-panden"
                                required
@@ -223,14 +225,6 @@
                     inclusief de naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicenummer
                     van de
                     overledene.</p>
-                <div>
-                    <label>
-                        Waarde van het beleggingsvermogen in de gehele onderneming
-                        <input data-1p-ignore required
-                               class="big-mobile"
-                               type="text">
-                    </label>
-                </div>
                 <fieldset class="big-address-fieldset">
                     <legend><strong>Adres in Nederland</strong></legend>
                     <div>
