@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
 <meta charset="UTF-8">
              <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -15,7 +15,7 @@
 		      rel="stylesheet">
 		<link href="./styles/variables.css"
 		      rel="stylesheet">
-		
+
 </head>
 <body>
 <aside>
@@ -30,11 +30,11 @@
 
 <main>
 
-		
+
 		<form action="/?">
 				<progress></progress>
 				<fieldset>
-						<legend><span class="question-indicator">12</span> Aanvraag toepassing van de bedrijfsopvolgingsregeling</legend>
+						<legend class="header-legend"><span class="question-indicator">12</span> Aanvraag toepassing van de bedrijfsopvolgingsregeling</legend>
 						<div class="top-side-information">
 						<p>Wij raden u aan eken adviseur in te schakelen om de vragen te beantwoorden
 die horen bij de aanvraag van de bedrijfsopvolgingsregeling.
@@ -50,7 +50,7 @@ formulier. Bewaar de ingevulde rekenhulp(en). Wij kunnen u daar om vragen.</p>
 								<span class="question-indicator">12a</span>Zijn er personen, erkende doelen of instellingen die gebruik willen maken van de
 bedrijfsopvolgingsregeling?
 								</legend>
-								
+							<div class="radio-check-box-container">
 								<label class="radio-check-box">
 										Nee
 								<input name="bedrijfsopvolgingsregeling"
@@ -65,16 +65,17 @@ bedrijfsopvolgingsregeling?
 								       type="radio"
 								       value="yes">
 										</label>
+							</div>
 						</fieldset>
 						<fieldset class="question-small">
 						<legend>
 								<span class="question-indicator">12b</span> <strong>Gegevens van de onderneming waarvoor u de bedrijfsopvolgingsregeling aanvraagt</strong>
 								</legend>
-								<p>Wilt u voor meerdere ondernemingen een aanvraag doen voor toepassing van de bedrijfsopvolgingsregeling? Maak dan 1 of meer kopieën van
-deze bladzijde. De gegevens die u niet meer kunt invullen op dit formulier, vult u in op de kopieën, inclusief de naam van de bijbehorende onderneming.
-Schrijf op iedere kopie het burgerservicenummer van de overledene</p>
+<!--								<p>Wilt u voor meerdere ondernemingen een aanvraag doen voor toepassing van de bedrijfsopvolgingsregeling? Maak dan 1 of meer kopieën van-->
+<!--deze bladzijde. De gegevens die u niet meer kunt invullen op dit formulier, vult u in op de kopieën, inclusief de naam van de bijbehorende onderneming.-->
+<!--Schrijf op iedere kopie het burgerservicenummer van de overledene</p>-->
 								<div>
-								<label class="center-input required">
+								<label class="input-non-radio required">
 										Burgerservicenummer/RSIN/fiscaal identificatienummer van de onderneming
 										<input id="bsn"
 										       name="bsn"
@@ -83,7 +84,7 @@ Schrijf op iedere kopie het burgerservicenummer van de overledene</p>
 								</label>
 										</div>
 								<div>
-								<label class="center-input required big-input required">
+								<label class="input-non-radio big-input required">
 										Naam van de onderneming
 										<input name="naam-onderneming"
 										       required
@@ -96,6 +97,7 @@ Schrijf op iedere kopie het burgerservicenummer van de overledene</p>
 						<legend>
 								<span class="question-indicator">12c</span> Is er een vooroverleg geweest met de Belastingdienst over de bedrijfsopvolgingsregeling?
 								</legend>
+							<div class="radio-check-box-container">
 								<label class="radio-check-box">
 										Nee
 								<input name="vooroverleg-bor"
@@ -110,11 +112,13 @@ Schrijf op iedere kopie het burgerservicenummer van de overledene</p>
 									       type="radio"
 									       value="yes">
 								</label>
+							</div>
 						</fieldset>
 						<fieldset class="question-small">
 						<legend>
 								<span class="question-indicator">12d</span> Had de overledene de onderneming minimaal 1 jaar in bezit?
 								</legend>
+							<div class="radio-check-box-container">
 								<label class="radio-check-box">
 										Nee
 								<input name="onderneming-duur"
@@ -129,64 +133,69 @@ Schrijf op iedere kopie het burgerservicenummer van de overledene</p>
 									       type="radio"
 									       value="yes">
 								</label>
+							</div>
 						</fieldset>
 						<fieldset class="question-small">
 						<legend>
 								<span class="question-indicator">12e</span> Wordt de onderneming binnen 2 jaar na overlijden anders verdeeld dan volgens het testament
 of de wettelijke verdeling?
 								</legend>
-								<label class="radio-check-box">
+							<div class="radio-check-box-container">
+								<label class="radio-check-box required">
 										Nee
 								<input name="anders-testament"
 								       required
 								       type="radio"
 								       value="nee">
 										</label>
-								<label class="radio-check-box">
+								<label class="radio-check-box required">
 										Ja
 									<input name="anders-testament"
 									       required
 									       type="radio"
 									       value="yes">
 								</label>
+							</div>
 						</fieldset>
 						<fieldset class="question-small">
 						<legend>
 								<span class="question-indicator">12f</span> Is er sprake van beleggingsvermogen?
 								</legend>
-								<label class="radio-check-box">
+							<div class="radio-check-box-container">
+								<label class="radio-check-box required">
 										Nee
 								<input name="beleggingsvermogen"
 								       required
 								       type="radio"
 								       value="no">
 										</label>
-								<label class="radio-check-box">
+								<label class="radio-check-box required">
 										Ja
 									<input name="beleggingsvermogen"
 									       required
 									       type="radio"
 									       value="yes">
 								</label>
+							</div>
 								<div>
-								<label>
+								<label class="input-non-radio">
 										Waarde van het beleggingsvermogen in de gehele onderneming
 										<input inputmode="numeric"
 										       name="waarde-beleggingsvermogen-heel"
-										       required
 										       type="number"
 										>
 								</label>
 										</div>
 						</fieldset>
-						
-						
+
+
 						<fieldset class="question-small">
 						<legend>
 								<span class="question-indicator">12g</span> <strong>Ter beschikking gesteld pand</strong>
 								</legend>
 								<p>Horen er 1 of meer ter beschikking gestelde panden
 bij het ondernemingsvermogen?</p>
+							<div class="radio-check-box-container">
 								<label class="radio-check-box">
 										Nee<span>. Ga verder met vraag 12k</span>
 								<input name="meerdere-panden"
@@ -201,6 +210,7 @@ bij het ondernemingsvermogen?</p>
 									       type="radio"
 									       value="yes">
 								</label>
+							</div>
 								<p>Vul de gegevens in van het ter beschikking gestelde pand. Ruimtegebrek? Maak dan 1 of meer kopieën van
 deze bladzijde. De gegevens die u niet meer kunt invullen op dit formulier, vult u in op de kopieën, inclusief de
 naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicenummer van de overledene.</p>
@@ -211,73 +221,93 @@ naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicen
 										       type="text">
 								</label>
 										</div>
-								<fieldset>
+								<fieldset class="big-address-fieldset">
 										<legend><strong>Adres in Nederland</strong></legend>
+									<div>
+										<header>
 										<label for="street12kNL">Straat</label>,<label for="housenumber12kNL">huisnummer</label> en <label for="addition12kNL">toevoeging</label>
+										</header>
 										<input id="street12kNL"
 										       naam="street12kNL"
-										       required
+
 										       type="text">
 										<input id="housenumber12kNL"
 										       naam="housenumber12kNL"
-										       required
+
 										       type="text">
 										<input id="addition12kNL"
 										       naam="addition12kNL"
-										       required
+
 										       type="text">
+									</div>
 										<div>
-										<label for="postalcode12kNL">Postcode</label> en <label for="area12kNL">woonplaats</label>
+											<header>
+												<label for="postalcode12kNL">Postcode</label> en <label for="area12kNL">woonplaats</label>
+												</header>
 										<input id="postalcode12kNL"
 										       naam="postalcode12kNL"
-										       required
+
 										       type="text">
 										<input id="area12kNL"
 										       naam="area12kNL"
-										       required
+
 										       type="text">
 												</div>
 								</fieldset>
-								<fieldset>
+								<fieldset class="big-address-fieldset">
 										<legend><strong>Adres in het buitenland</strong></legend>
-										<label for="street12kGLB">Straat</label> en <label for="housenumber12kGLB">huisnummer</label>
+									<div>
+										<header>
+										<label for="street12kGLB">Straat</labeel> en <labl for="housenumber12kGLB">huisnummer</label>
+										</header>
 										<input id="street12kGLB"
-										       required
+
 										       type="text">
 										<input id="housenumber12kGLB"
-										       required
+
 										       type="text">
+									</div>
 										<div>
+										<header>
 										<label for="postalcode12kGLB">Postcode</label> en <label for="area12kGLB">plaats</label>
+										</header>
 										<input id="postalcode12kGLB"
-										       required
+
 										       type="text">
 										<input id="area12kGLB"
-										       required
+
 										       type="text">
 												</div>
+									<div>
+										<header>
 										<label for="countrycode12k">Landcode</label>
+										</header>
 										<input id="countrycode12k"
-										       required
+
 										       type="text">
+									</div>
 								</fieldset>
-								<fieldset>
+								<fieldset class="big-address-fieldset">
 										<legend><strong>Geen adres bekend?</strong></legend>
+									<div>
+										<header>
 										<label for="plotmarking12k">Vul dan de kadastrale perceelaanduiding in.</label>
+										</header>
 										<input id="plotmarking12k"
 										       name="plotmarking12k"
-										       required
+
 										       type="text">
+									</div>
 								</fieldset>
 						</fieldset>
-						
+
 						<fieldset class="question-small">
 						<legend>
 							<span class="question-indicator">12h</span> <label for="economic-traffic">Waarde in het economisch verkeer van het ter beschikking gestelde pand
 										</label>
 								</legend>
 																<input id="economic-traffic"
-																       required
+
 																       type="text">
 						</fieldset>
 						<fieldset class="question-small">
@@ -287,16 +317,15 @@ naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicen
 								<label>
 										In een breuk
 								<input name=""
-								       required
 								       type="text">
 										/
-								<input required
+								<input
 								       type="text">
 										</label>
 						</fieldset>
 				</fieldset>
-				
-				
+
+
 				<select id="select"
 				        name="testingSelect">
 						<option value="1">1</option>
@@ -310,8 +339,8 @@ naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicen
 				        id="myButton"
 				        type="button">oop</button>
 		</form>
-		
-		
+
+
 
 </main>
 
@@ -332,7 +361,7 @@ naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicen
 				background-color: black;
 				place-content: center;
 				}
-		
+
 		aside span {
 				padding: 1rem 1.5rem;
 				font-size: 1.25rem;
