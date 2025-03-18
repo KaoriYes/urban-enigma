@@ -27,6 +27,12 @@ body {
     background-color: var(--cc-white);
 }
 
+@media (max-width: 770px) {
+    body {
+        padding: 3rem 2.5vw 1.5rem;
+    }
+}
+
 header span {
     display: block;
     width: 5rem;
