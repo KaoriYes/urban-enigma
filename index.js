@@ -175,69 +175,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// start
-// q12f
-
-
 //q12g
 const Q12g = document.querySelector("#q12g");
-const Q12gSpan = Q12g.querySelector('span.remove-JS');
-const Q12gP = Q12g.querySelector('p.remove-JS');
-Q12gSpan.style.display = "none";
-Q12gP.style.display = "none";
-//
-//
-// // Function to check which radio buttons are checked within a specific fieldset
-// function checkCheckedRadios(fieldsetElement) {
-//     const radioButtons = fieldsetElement.querySelector('.radio-check-box-container').children;
-//     Array.from(radioButtons).forEach(label => {
-//         const input = label.querySelector('input[type="radio"]');
-//         if (input.value === 'yes' && input.checked) {
-//             Q12fFollowUp.style.display = "initial";
-//         } else {
-//             Q12fFollowUp.style.display = "none";
-//         }
-//     });
-// }
-//
-// // Example of how to use it:
-// // Assuming you want to check the radios in the fieldset with class "single-question-required"
-// // Add event listeners to all radio buttons within the specific fieldset
-// function addRadioChangeListener(fieldsetElement) {
-//     // Select all radio buttons within the fieldset (inside the .radio-check-box-container)
-//     const radioButtons = fieldsetElement.querySelectorAll('.radio-check-box-container input[type="radio"]');
-//
-//     // Add an onchange listener to each radio button
-//     radioButtons.forEach(radio => {
-//         radio.addEventListener('change', () => {
-//             // Call the checkCheckedRadios function whenever a radio button changes
-//             checkCheckedRadios(fieldsetElement);
-//         });
-//     });
-// }
-//
-// // Example of how to use it:
-// // Select the fieldset by ID
-// const fieldset = document.querySelector('#q12f');
-//
+Q12g.querySelector('span.remove-JS').style.display = 'none';
+Q12g.querySelector('p.remove-JS').style.display = 'none';
+
 // const fieldsetJsLogic = ['q12f', 'q12g', 'q12k', 'q12n'];
-// // Add change listeners to radio buttons in this fieldset
-// addRadioChangeListener(fieldset);
 
 const fieldsetJsLogic = ['q12f', 'q12g', 'q12gAdd'];
-
 
 function handleStartChange(fieldsetJsLogic) {
     fieldsetJsLogic.forEach(field => {
         let fieldset = document.querySelector(`#${field}`);
-
         if (fieldset) {
             if (field === 'q12g' || field === 'q12gAdd') {
                 handleQ12g(fieldset);
             } else if (['q12f', 'q12k', 'q12n'].includes(field)) {
                 handleReactionQuestion(fieldset);
             }
-
         }
     });
 }
@@ -267,35 +222,6 @@ function handleReactionQuestion(fieldset) {
 }
 
 
-function handleQ12gAddition(fieldset, select) {
-    const buildingInputs = Array.from(document.querySelectorAll('.big-address-fieldset'));
-    const existingInput = fieldset.querySelector(`.followUpQuestion.${select.value}`);
-    if (existingInput) {
-        fieldset.querySelectorAll('.followUpQuestion').forEach(followUp => {
-            if (!followUp.classList.contains(select.value)) {
-                followUp.style.display = "none";
-            }
-        })
-        existingInput.style.display = "block";
-        return;
-    }
-    const matchingInputs = buildingInputs.filter(buildingInput =>
-        buildingInput.classList.contains(select.value)
-    );
-    if (matchingInputs.length > 0) {
-        fieldset.querySelectorAll('.followUpQuestion').forEach(followUp => {
-            if (!followUp.classList.contains(select.value)) {
-                followUp.style.display = "none";
-            }
-        })
-        const newBuildingInput = matchingInputs[0].cloneNode(true);
-        newBuildingInput.style.display = "block";
-        fieldset.appendChild(newBuildingInput);
-        console.log("New input field added:", newBuildingInput);
-    }
-}
-
-
 function handleQ12g(fieldset) {
     const buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
     buildingInputs.forEach(input => {
@@ -311,19 +237,23 @@ function handleQ12g(fieldset) {
 
             if (radio.value === 'yes' && radio.checked) {
                 createDynamicInput(fieldset);
+
+
             } else {
                 removeDynamicInput(fieldset);
-                buildingInputs.forEach(building => {
-                    building.style.display = "none";
-                });
 
+                // console.log(fieldset.nextElementSibling, fieldset.nextElementSibling.nextElementSibling, fieldset.nextElementSibling.nextElementSibling.nextElementSibling);
+                // fieldset.nextElementSibling.style.display = "none";
+                // fieldset.nextElementSibling.nextElementSibling.style.display = "none";
+                // fieldset.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
             }
         });
     });
 }
 
-function createDynamicInput(fieldset) {
+function createDynamicInput(fieldset, buildingInputs) {
     if (!fieldset.querySelector('.dynamic-input')) {
+
         const newInputContainer = document.createElement('div');
         newInputContainer.classList.add('dynamic-input');
         const label = document.createElement('label');
@@ -354,25 +284,44 @@ function createDynamicInput(fieldset) {
         fieldset.insertBefore(newInputContainer, radioContainer);
         loadSpecificData(select.name);
         addFieldsetBuildings12g(fieldset, select);
-        if (fieldset === document.querySelector('#q12gAdd')) {
-            handleQ12gAddition(fieldset, select);
-        }
+
 
         select.addEventListener('change', () => {
-            if (fieldset === document.querySelector('#q12gAdd')) {
-                handleQ12gAddition(fieldset, select);
-            } else {
-                addFieldsetBuildings12g(fieldset, select);
-            }
-
+            addFieldsetBuildings12g(fieldset, select);
             saveData(select.name, select.value);
         });
     }
 }
 
 function addFieldsetBuildings12g(fieldset, select) {
-    const buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
-    buildingInputs.forEach(building => {
+    let buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
+    checkBuildingsInputs(buildingInputs, select);
+    if (buildingInputs.length === 0) {
+        const dupeBuildings = Array.from(document.querySelectorAll('.big-address-fieldset'));
+        dupeBuildings.forEach(buildingInput => {
+            buildingInput.cloneNode(true)
+            fieldset.appendChild(buildingInput);
+        })
+        let buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
+        checkBuildingsInputs(buildingInputs, select)
+
+    }
+}
+
+function removeDynamicInput(fieldset) {
+    const dynamicInput = fieldset.querySelector('.dynamic-input');
+    if (dynamicInput) {
+        dynamicInput.remove();
+    }
+    let buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
+    buildingInputs.forEach(buildingInput => {
+        buildingInput.style.display = "none";
+    })
+}
+
+
+function checkBuildingsInputs(buildingsInput, select) {
+    buildingsInput.forEach(building => {
         if (building.classList.contains(select.value)) {
             building.style.display = "block";
             building.classList.add('single-question-required');
@@ -385,13 +334,4 @@ function addFieldsetBuildings12g(fieldset, select) {
             building.style.display = "none";
         }
     })
-
 }
-
-function removeDynamicInput(fieldset) {
-    const dynamicInput = fieldset.querySelector('.dynamic-input');
-    if (dynamicInput) {
-        dynamicInput.remove();
-    }
-}
-
