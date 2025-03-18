@@ -61,6 +61,7 @@ main {
 main form > fieldset {
     border: none;
     max-width: 100ch;
+
 }
 
 main form > fieldset > fieldset {
@@ -71,6 +72,15 @@ main form > fieldset > fieldset {
 
 main form > fieldset > fieldset > fieldset {
     border: none;
+
+}
+
+@media (max-width: 770px) {
+    main form > fieldset,
+    main form > fieldset > fieldset > fieldset {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 /* Fieldset Legends*/
@@ -235,10 +245,18 @@ input:focus-visible {
 
 /*INPUT Specific*/
 
-input.small {
+input.small, input.datalistsmall {
     min-width: 7.5rem;
     width: 7.5rem;
     max-width: 7.5rem;
+}
+
+@media (max-width: 770px) {
+    input.small {
+        min-width: 5rem;
+        width: 5rem;
+        max-width: 5rem;
+    }
 }
 
 input.big-mobile {
