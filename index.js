@@ -89,7 +89,7 @@ const saveData = async (name, value) => {
 
     store.put({name, value});
 
-    transaction.oncomplete = () => console.log(`Saved: ${name} = ${value}`);
+    // transaction.oncomplete = () => console.log(`Saved: ${name} = ${value}`);
 };
 
 const loadData = async () => {
@@ -98,7 +98,9 @@ const loadData = async () => {
     const store = transaction.objectStore(storeName);
     const request = store.getAll();
 
+
     request.onsuccess = () => {
+        console.log(request.result);
         const data = request.result;
         data.forEach(({name, value}) => {
             const input = document.querySelector(`[name="${name}"]`);
@@ -122,13 +124,33 @@ const loadData = async () => {
                 // Text, email, textarea
                 input.value = value;
             }
+
         });
+
     };
 };
+const loadSpecificData = async (name) => {
+    const db = await openDB();
+    const transaction = db.transaction(storeName, "readonly");
+    const store = transaction.objectStore(storeName);
+    const request = store.getAll();
+    let specificData = name;
+    request.onsuccess = () => {
+        console.log(request.result);
+        const data = request.result;
+        let item = data.filter((data) => data.name === specificData);
 
+        item.forEach(({name, value}) => {
+            const input = document.querySelector(`[name="${name}"]`);
+            if (!input) return;
+            input.value = value;
+        })
+    }
+}
 document.addEventListener("DOMContentLoaded", () => {
     loadData();
-    document.querySelectorAll("form fieldset fieldset label input, form fieldset fieldset label textarea").forEach(input => {
+    handleStartChange(fieldsetJsLogic);
+    document.querySelectorAll("form fieldset fieldset label input, form fieldset fieldset label select").forEach(input => {
         input.addEventListener("change", (event) => {
             const {name, type, value, checked} = event.target;
             if (type === "radio" && checked) {
@@ -153,4 +175,223 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// start
+// q12f
+
+
+//q12g
+const Q12g = document.querySelector("#q12g");
+const Q12gSpan = Q12g.querySelector('span.remove-JS');
+const Q12gP = Q12g.querySelector('p.remove-JS');
+Q12gSpan.style.display = "none";
+Q12gP.style.display = "none";
+//
+//
+// // Function to check which radio buttons are checked within a specific fieldset
+// function checkCheckedRadios(fieldsetElement) {
+//     const radioButtons = fieldsetElement.querySelector('.radio-check-box-container').children;
+//     Array.from(radioButtons).forEach(label => {
+//         const input = label.querySelector('input[type="radio"]');
+//         if (input.value === 'yes' && input.checked) {
+//             Q12fFollowUp.style.display = "initial";
+//         } else {
+//             Q12fFollowUp.style.display = "none";
+//         }
+//     });
+// }
+//
+// // Example of how to use it:
+// // Assuming you want to check the radios in the fieldset with class "single-question-required"
+// // Add event listeners to all radio buttons within the specific fieldset
+// function addRadioChangeListener(fieldsetElement) {
+//     // Select all radio buttons within the fieldset (inside the .radio-check-box-container)
+//     const radioButtons = fieldsetElement.querySelectorAll('.radio-check-box-container input[type="radio"]');
+//
+//     // Add an onchange listener to each radio button
+//     radioButtons.forEach(radio => {
+//         radio.addEventListener('change', () => {
+//             // Call the checkCheckedRadios function whenever a radio button changes
+//             checkCheckedRadios(fieldsetElement);
+//         });
+//     });
+// }
+//
+// // Example of how to use it:
+// // Select the fieldset by ID
+// const fieldset = document.querySelector('#q12f');
+//
+// const fieldsetJsLogic = ['q12f', 'q12g', 'q12k', 'q12n'];
+// // Add change listeners to radio buttons in this fieldset
+// addRadioChangeListener(fieldset);
+
+const fieldsetJsLogic = ['q12f', 'q12g', 'q12gAdd'];
+
+
+function handleStartChange(fieldsetJsLogic) {
+    fieldsetJsLogic.forEach(field => {
+        let fieldset = document.querySelector(`#${field}`);
+
+        if (fieldset) {
+            if (field === 'q12g' || field === 'q12gAdd') {
+                handleQ12g(fieldset);
+            } else if (['q12f', 'q12k', 'q12n'].includes(field)) {
+                handleReactionQuestion(fieldset);
+            }
+
+        }
+    });
+}
+
+
+function handleReactionQuestion(fieldset) {
+    let followUps = fieldset.querySelectorAll('.followUpQuestion');
+    followUps.forEach(followUp => {
+        followUp.style.display = "none";
+    })
+    let inputs = fieldset.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('change', (event) => {
+            followUps.forEach(followUp => {
+                if (input.value === 'yes' && input.checked === true) {
+                    followUp.style.display = "block";
+                    followUp.querySelector('input').required = true;
+                    followUp.querySelector('label').classList.add('required');
+                } else {
+                    followUp.style.display = "none";
+                }
+            })
+        })
+    })
+
+
+}
+
+
+function handleQ12gAddition(fieldset, select) {
+    const buildingInputs = Array.from(document.querySelectorAll('.big-address-fieldset'));
+    const existingInput = fieldset.querySelector(`.followUpQuestion.${select.value}`);
+    if (existingInput) {
+        fieldset.querySelectorAll('.followUpQuestion').forEach(followUp => {
+            if (!followUp.classList.contains(select.value)) {
+                followUp.style.display = "none";
+            }
+        })
+        existingInput.style.display = "block";
+        return;
+    }
+    const matchingInputs = buildingInputs.filter(buildingInput =>
+        buildingInput.classList.contains(select.value)
+    );
+    if (matchingInputs.length > 0) {
+        fieldset.querySelectorAll('.followUpQuestion').forEach(followUp => {
+            if (!followUp.classList.contains(select.value)) {
+                followUp.style.display = "none";
+            }
+        })
+        const newBuildingInput = matchingInputs[0].cloneNode(true);
+        newBuildingInput.style.display = "block";
+        fieldset.appendChild(newBuildingInput);
+        console.log("New input field added:", newBuildingInput);
+    }
+}
+
+
+function handleQ12g(fieldset) {
+    const buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
+    buildingInputs.forEach(input => {
+        input.style.display = "none";
+    })
+
+    const radioButtons = fieldset.querySelectorAll('input[type="radio"]');
+    if (radioButtons.value === 'yes' && radioButtons.checked) {
+        createDynamicInput(fieldset);
+    }
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', function () {
+
+            if (radio.value === 'yes' && radio.checked) {
+                createDynamicInput(fieldset);
+            } else {
+                removeDynamicInput(fieldset);
+                buildingInputs.forEach(building => {
+                    building.style.display = "none";
+                });
+
+            }
+        });
+    });
+}
+
+function createDynamicInput(fieldset) {
+    if (!fieldset.querySelector('.dynamic-input')) {
+        const newInputContainer = document.createElement('div');
+        newInputContainer.classList.add('dynamic-input');
+        const label = document.createElement('label');
+        label.classList.add('input-non-radio', 'required', 'BuildingChoice');
+        const span = document.createElement('span');
+        span.innerHTML = 'In welk land staat het ter beschikking gestelde pand?';
+        label.appendChild(span);
+        const select = document.createElement('select');
+        select.required = true;
+
+        select.name = 'locatiePand';
+
+        select.classList.add('big-mobile');
+        const options = [
+            {value: 'NL', text: 'Nederland'},
+            {value: 'GLB', text: 'Buitenland'},
+            {value: 'unknown', text: 'Geen adres bekend'}
+        ];
+        options.forEach(optData => {
+            const option = document.createElement('option');
+            option.value = optData.value;
+            option.innerHTML = optData.text;
+            select.appendChild(option);
+        });
+        label.appendChild(select);
+        newInputContainer.appendChild(label);
+        const radioContainer = fieldset.querySelector('.followUpQuestion');
+        fieldset.insertBefore(newInputContainer, radioContainer);
+        loadSpecificData(select.name);
+        addFieldsetBuildings12g(fieldset, select);
+        if (fieldset === document.querySelector('#q12gAdd')) {
+            handleQ12gAddition(fieldset, select);
+        }
+
+        select.addEventListener('change', () => {
+            if (fieldset === document.querySelector('#q12gAdd')) {
+                handleQ12gAddition(fieldset, select);
+            } else {
+                addFieldsetBuildings12g(fieldset, select);
+            }
+
+            saveData(select.name, select.value);
+        });
+    }
+}
+
+function addFieldsetBuildings12g(fieldset, select) {
+    const buildingInputs = fieldset.querySelectorAll('.followUpQuestion');
+    buildingInputs.forEach(building => {
+        if (building.classList.contains(select.value)) {
+            building.style.display = "block";
+            building.classList.add('single-question-required');
+            building.querySelectorAll('input').forEach(input => {
+                if (!input.getAttribute('not-required')) {
+                    input.required = true;
+                }
+            })
+        } else {
+            building.style.display = "none";
+        }
+    })
+
+}
+
+function removeDynamicInput(fieldset) {
+    const dynamicInput = fieldset.querySelector('.dynamic-input');
+    if (dynamicInput) {
+        dynamicInput.remove();
+    }
+}
 

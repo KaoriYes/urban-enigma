@@ -166,7 +166,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset class="question-small single-question-required">
+            <fieldset class="question-small single-question-required" id="q12f">
                 <legend>
                     <span class="question-indicator">12f</span> Is er sprake van beleggingsvermogen?
                 </legend>
@@ -186,9 +186,9 @@
                                value="yes">
                     </label>
                 </div>
-                <div>
+                <div class="followUpQuestion">
                     <label class="input-non-radio">
-                        Waarde van het beleggingsvermogen in de gehele onderneming
+                        <span>Waarde van het beleggingsvermogen in de gehele onderneming</span>
                         <input data-1p-ignore inputmode="numeric"
                                name="waarde-beleggingsvermogen-heel"
                                type="number"
@@ -198,7 +198,7 @@
             </fieldset>
 
 
-            <fieldset class="question-small single-question-required">
+            <fieldset id="q12g" class="question-small single-question-required">
                 <legend>
                     <span class="question-indicator">12g</span> <strong>Ter beschikking gesteld pand</strong>
                 </legend>
@@ -225,7 +225,7 @@
                     inclusief de naam van de bijbehorende onderneming. Schrijf op iedere kopie het burgerservicenummer
                     van de
                     overledene.</p>
-                <fieldset class="big-address-fieldset">
+                <fieldset class="big-address-fieldset followUpQuestion NL">
                     <legend><strong>Adres in Nederland</strong></legend>
                     <div>
                         <header>
@@ -236,14 +236,17 @@
                             <input data-1p-ignore id="street12kNL"
                                    name="street12kNL"
                                    type="text">
-                            <input data-1p-ignore id="housenumber12kNL"
-                                   class="small"
-                                   name="housenumber12kNL"
-                                   type="text">
-                            <input data-1p-ignore id="addition12kNL"
-                                   class="small"
-                                   name="addition12kNL"
-                                   type="text">
+                            <div>
+                                <input data-1p-ignore id="housenumber12kNL"
+                                       class="small"
+                                       name="housenumber12kNL"
+                                       type="text">
+                                <input data-1p-ignore id="addition12kNL"
+                                       class="small"
+                                       name="addition12kNL"
+                                       type="text"
+                                       not-required="true">
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -261,7 +264,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <fieldset class="big-address-fieldset">
+                <fieldset class="big-address-fieldset followUpQuestion GLB">
                     <legend><strong>Adres in het buitenland</strong></legend>
                     <div>
                         <header>
@@ -497,7 +500,7 @@
                         </datalist>
                     </div>
                 </fieldset>
-                <fieldset class="big-address-fieldset">
+                <fieldset class="big-address-fieldset followUpQuestion unknown">
                     <legend><strong>Geen adres bekend?</strong></legend>
                     <div>
                         <header>
@@ -528,11 +531,34 @@
                 <label>
                     In een breuk
                     <input data-1p-ignore class="small"
-                           type="text">
+                           inputmode="numeric"
+                           type="number">
                     /
                     <input data-1p-ignore class="small"
-                           type="text">
+                           inputmode="numeric"
+                           type="number">
                 </label>
+            </fieldset>
+            <fieldset class="question-small single-question-required" id="q12gAdd">
+                <legend>
+                    <span class="question-indicator">12g<sub>+</sub> Wilt u een gebouw toevoegen?</span>
+                </legend>
+                <div class="radio-check-box-container">
+                    <label class="radio-check-box required">
+                        Nee
+                        <input data-1p-ignore name="gebouwen-toevoegen"
+                               required
+                               type="radio"
+                               value="no">
+                    </label>
+                    <label class="radio-check-box required">
+                        Ja
+                        <input data-1p-ignore name="gebouwen-toevoegen"
+                               required
+                               type="radio"
+                               value="yes">
+                    </label>
+                </div>
             </fieldset>
         </fieldset>
 

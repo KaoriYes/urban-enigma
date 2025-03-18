@@ -117,11 +117,16 @@ main form > fieldset > fieldset legend .question-indicator {
 }
 
 /* Required Indicator*/
-main form > fieldset > fieldset.single-question-required > legend::after,
+main form > fieldset fieldset.single-question-required > legend::after,
 main form > fieldset > fieldset label.input-non-radio.required span::after {
     content: "*";
     color: var(--nes-color-form-error);
     margin-left: 4px;
+}
+
+main form > fieldset fieldset.single-question-required:valid > legend::after,
+main form > fieldset > fieldset label.input-non-radio.required:has(input:valid) span::after {
+    content: '';
 }
 
 
@@ -232,10 +237,21 @@ main form > fieldset > fieldset label.input-non-radio.required input:valid {
     }
 }
 
+@media (max-width: 380px) {
+    main form > fieldset > fieldset > fieldset.big-address-fieldset div div {
+        flex-direction: column;
+    }
+
+    main form > fieldset > fieldset > fieldset.big-address-fieldset div div div {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 
 /* INPUT General */
 
-input {
+input, select {
     margin: .25rem;
     padding: .5rem .75rem;
     font-family: NS Sans, sans-serif;
@@ -247,33 +263,44 @@ input {
     color: var(--nes-color-text-heading);
 }
 
+select:focus-visible {
+    outline: 2px solid var(--cc-primary-color);
+}
+
 @media (min-width: 770px) {
     input {
         min-width: 40ch;
     }
 }
 
+label.radio-check-box:focus-within {
+    accent-color: var(--cc-primary-color);
+    outline: 2px solid var(--cc-primary-color);
+    border: 1px solid var(--cc-primary-color);
+}
+
 input:focus-visible {
     accent-color: var(--cc-primary-color);
-    outline-color: var(--cc-primary-color);
+    outline: 2px solid var(--cc-primary-color);
 }
 
 /*INPUT Specific*/
 
-input.small, input.datalistsmall {
+.small, .datalistsmall {
     min-width: 7.5rem;
     width: 7.5rem;
     max-width: 7.5rem;
 }
 
 @media (max-width: 770px) {
-    input.small {
+    .small {
         min-width: 5rem;
         width: 5rem;
         max-width: 5rem;
     }
+
+    .big-mobile {
+        min-width: 100%;
+    }
 }
 
-input.big-mobile {
-    min-width: 100%;
-}
