@@ -448,3 +448,32 @@ Unieke functionaliteit voor vraag Q12g en Q12g+
             }
         })
     }
+
+### Week 4
+
+In week vier heb ik jammer genoeg niet veel kunnen doen, ik moest de eerste dag van de week al mijn werk beoordelen door
+Vasilis.
+Ik heb dus een aantal punten die ik niet heb kunnen maken of achterwege heb gelaten. Die zijn als volgt:
+
+- De tweede helft van het formulier
+- De rekentool
+- De progress bar
+- Meer custom validatie
+
+De tweede helft van het formulier heb ik jammergenoeg weg gehaald, deze was niet op niveau en zou daardoor de algemene
+kwaliteit van de opdracht verlagen.
+Daarnaast ben ik zelf ook erg perfectionistisch en wil dat het er goed uit ziet.
+
+Daar komt dan gelijk ook de reken tool bij kijken, want die is ook nog niet op niveau. Het waren standaard
+een `<details>` en wordt naar een `<dialog>` veranderd m.b.v JS.
+Zo krijg je een goede responsiveness. Ik wilde daarbij ook graag een print optie meegeven, zodat de oudere gebruikers
+hier ook blij mee zouden zijn.
+
+De progress bar leek me een nuttige toevoeging aan het formulier, om de gebruiker een betere impressie van de
+hoeveelheid werk en zo de ervaring plezanter te maken.
+Hier ben ik simpelweg niet aan toegekomen.
+
+Ik had ook graag meer custom validatie willen schrijven, maar die zou ook veelal voorkomen in de tweede helft van het
+formulier. Daardoor heb ik dat doorgeschoven. Ik had hier echter wel goede ideeën voor. Ik wilde de inputs die custom
+validatie nodig hadden een data-attribuut meegeven. Zo kan je 1 grote for each pakken waarbij de validatie gezet kan
+worden. Hierbij kan je de code een stuk inkorten.
