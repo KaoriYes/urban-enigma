@@ -237,15 +237,8 @@ function handleQ12g(fieldset) {
 
             if (radio.value === 'yes' && radio.checked) {
                 createDynamicInput(fieldset);
-
-
             } else {
                 removeDynamicInput(fieldset);
-
-                // console.log(fieldset.nextElementSibling, fieldset.nextElementSibling.nextElementSibling, fieldset.nextElementSibling.nextElementSibling.nextElementSibling);
-                // fieldset.nextElementSibling.style.display = "none";
-                // fieldset.nextElementSibling.nextElementSibling.style.display = "none";
-                // fieldset.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
             }
         });
     });

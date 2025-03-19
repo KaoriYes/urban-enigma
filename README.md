@@ -82,3 +82,9 @@ Resultaat met CSS:
 
 ![CSS12c.png](readmeIMG%2FCSS12c.png)
 
+### Week 3
+
+In week drie heb ik twee dingen gedaan, de JS logica en de CSS opnieuw schrijven. Daarnaast heb ik ook meer toevoegingen
+van de stijl van de NS in mijn CSS gezet.
+De grootste taak bleef toch de JS logica die benodigd was voor het formulier.
+Hierbij heb ik een aantal benoemingswaardige functies gebruikt en/of gemaakt.

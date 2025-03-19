@@ -1,159 +1,160 @@
 @font-face {
-    font-family: NS sans;
-    src: url("/fonts/nssans-regular.woff2");
-    font-weight: 500;
-}
+  font-family: NS sans;
+  src: url("/fonts/nssans-regular.woff2");
+  font-weight: 500;
+  }
 
 @font-face {
-    font-family: NS sans;
-    src: url("/fonts/nssans-bold.woff2");
-    font-weight: 700;
-}
+  font-family: NS sans;
+  src: url("/fonts/nssans-bold.woff2");
+  font-weight: 700;
+  }
 
 @font-face {
-    font-family: Material Icons;
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("/fonts/MaterialIcons-Regular.ttf") format("truetype")
-}
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/fonts/MaterialIcons-Regular.ttf") format("truetype")
+  }
 
 
 body {
-    padding: 3rem 5vw 1.5rem;
-    font-family: NS Sans, sans-serif;
-    line-height: 1.5625rem;
-    color: #070721;
-    background-color: var(--cc-white);
-}
+  padding: 3rem 5vw 1.5rem;
+  font-family: NS Sans, sans-serif;
+  line-height: 1.5625rem;
+  color: #070721;
+  background-color: var(--cc-white);
+  }
 
 @media (max-width: 770px) {
-    body {
-        padding: 3rem 2.5vw 1.5rem;
+  body {
+    padding: 3rem 2.5vw 1.5rem;
     }
-}
+  }
 
 header span {
-    display: block;
-    width: 5rem;
-    height: 2rem;
-    transition: all .2s cubic-bezier(.7, .27, .27, 1);
-    color: #ffffff;
-    background-color: #003082;
-    background-image: none;
-    background-size: 76px 30px;
-    -webkit-mask-image: url("../images/nslogo.svg");
-    mask-image: url("../images/nslogo.svg");
-    -webkit-mask-position: left center;
-    mask-position: left center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-}
+  display: block;
+  width: 5rem;
+  height: 2rem;
+  transition: all .2s cubic-bezier(.7, .27, .27, 1);
+  color: #ffffff;
+  background-color: #003082;
+  background-image: none;
+  background-size: 76px 30px;
+  -webkit-mask-image: url("../images/nslogo.svg");
+  mask-image: url("../images/nslogo.svg");
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  }
 
 main {
-    margin: 0 auto;
-}
+  margin: 0 auto;
+  }
 
 @media (min-width: 770px) {
-    main .top-side-information {
-        columns: 2;
+  main .top-side-information {
+    columns: 2;
     }
-}
+  }
 
 
 /* Fieldset - Fieldset Fieldset - Fieldset Fieldset Fieldset */
 main form > fieldset {
-    border: none;
-    max-width: 80ch;
-
-}
+  max-width: 80ch;
+  border: none;
+  
+  }
 
 main form > fieldset > fieldset {
-    margin: 2rem 0;
-    padding: 0;
-    border: none;
-}
+  margin: 2rem 0;
+  padding: 0;
+  border: none;
+  }
 
 main form > fieldset > fieldset > fieldset {
-    border: none;
-
-}
+  border: none;
+  
+  }
 
 @media (max-width: 770px) {
-    main form > fieldset,
-    main form > fieldset > fieldset > fieldset {
-        margin: 0;
-        padding: 0;
+  main form > fieldset,
+  main form > fieldset > fieldset > fieldset {
+    margin: 0;
+    padding: 0;
     }
-}
+  }
 
 /* Fieldset Legends*/
 
 main form > fieldset > fieldset > fieldset.big-address-fieldset legend {
-    margin: 0;
-}
+  margin: 0;
+  }
 
 main form > fieldset > legend.header-legend {
-    font-weight: 700;
-    line-height: calc(1.07em + 6px);
-    letter-spacing: calc(-.022em + .33px);
-    color: var(--nes-color-text-heading);
-    font-size: 1.25rem;
-}
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: calc(1.07em + 6px);
+  letter-spacing: calc(-.022em + .33px);
+  color: var(--nes-color-text-heading);
+  }
 
 main form > fieldset > .question-small legend {
-    margin: .75rem 0;
-    padding: 0;
-    font-weight: 500;
-    color: var(--nes-color-text-heading);
-}
+  margin: .75rem 0;
+  padding: 0;
+  font-weight: 500;
+  color: var(--nes-color-text-heading);
+  }
 
 main form > fieldset > fieldset legend .question-indicator {
-    margin-right: .5rem;
-    font-weight: 700;
-    color: var(--nes-color-text-heading);
-}
+  margin-right: .5rem;
+  font-weight: 700;
+  color: var(--nes-color-text-heading);
+  }
 
 /* Required Indicator*/
 main form > fieldset fieldset.single-question-required > legend::after,
 main form > fieldset > fieldset label.input-non-radio.required span::after {
-    content: "*";
-    color: var(--nes-color-form-error);
-    margin-left: 4px;
-}
+  margin-left: 4px;
+  content: "*";
+  color: var(--nes-color-form-error);
+  }
 
 main form > fieldset fieldset.single-question-required:valid > legend::after,
 main form > fieldset > fieldset label.input-non-radio.required:has(input:valid) span::after {
-    content: '';
-}
+  content: "";
+  }
 
 
 /* Radio- Checkboxes */
 
 main form > fieldset > fieldset > div.radio-check-box-container {
-    display: flex;
-    width: fit-content;
-    padding: .5rem .25rem;
-    background-color: var(--nes-color-radio-panel-bg);
-    border: 1px solid var(--cc-primary-contrast-color);
-    margin: 0;
-    border-radius: .5rem;
-}
+  display: flex;
+  width: fit-content;
+  margin: 0;
+  padding: .5rem .25rem;
+  background-color: var(--nes-color-radio-panel-bg);
+  border: 1px solid var(--cc-primary-contrast-color);
+  border-radius: .5rem;
+  }
 
 main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box {
-    margin: 0 .25rem;
-    padding: .5rem .75rem;
-    background-color: var(--cc-primary-contrast-color);
-    text-align: center;
-    border-radius: .25rem;
-    width: 100%;
-    color: var(--nes-color-text-heading);
+  width: 100%;
+  margin: 0 .25rem;
+  padding: .5rem .75rem;
+  text-align: center;
+  color: var(--nes-color-text-heading);
+  background-color: var(--cc-primary-contrast-color);
+  border-radius: .25rem;
+  
+  }
 
-}
-
-main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box input {
+@supports (background-color: var(--cc-primary-contrast-color)) {
+  main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box input {
     clip: rect(0, 0, 0, 0);
     border-width: 0;
     height: 1px;
@@ -163,150 +164,152 @@ main form > fieldset > fieldset > div.radio-check-box-container label.radio-chec
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
+    }
+  }
+
 
 main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box:hover {
-    background-color: var(--cc-black-80);
-}
+  background-color: var(--cc-black-80);
+  }
 
 main form > fieldset > fieldset > div label:has(input[type="radio"]:checked), main form > fieldset > fieldset > div label:has(input[type="radio"]:checked):hover {
-    background-color: var(--cc-primary-color-opacity-20);
-    outline: 1px solid var(--cc-primary-color);
-    font-weight: 700;
-}
+  font-weight: 700;
+  background-color: var(--cc-primary-color-opacity-20);
+  outline: 1px solid var(--cc-primary-color);
+  }
 
 @media (min-width: 830px) {
-    main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box {
-        min-width: 40ch;
+  main form > fieldset > fieldset > div.radio-check-box-container label.radio-check-box {
+    min-width: 40ch;
     }
-}
+  }
 
 /* Input Non Radio - Checkboxes*/
 main form > fieldset > fieldset label.input-non-radio {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
 
 main form fieldset > fieldset div {
-    margin: 1rem 0;
-}
+  margin: 1rem 0;
+  }
 
 @media (max-width: 770px) {
-    main form > fieldset > fieldset label.input-non-radio {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+  main form > fieldset > fieldset label.input-non-radio {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
     }
-
-    main form > fieldset > fieldset label.input-non-radio input {
-        width: 100%;
-        margin: .55rem 0 0;
+  
+  main form > fieldset > fieldset label.input-non-radio input {
+    width: 100%;
+    margin: .55rem 0 0;
     }
-
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
+  
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
     }
-}
+  }
 
 main form > fieldset > fieldset label.input-non-radio.required input:valid {
-    border: 1px solid var(--cc-primary-color);
-}
+  border: 1px solid var(--cc-primary-color);
+  }
 
 
 @media (max-width: 770px) {
-    main form > fieldset > fieldset > div.radio-check-box-container {
-        width: 100%;
-        justify-content: space-between;
+  main form > fieldset > fieldset > div.radio-check-box-container {
+    justify-content: space-between;
+    width: 100%;
     }
-
-    main form > fieldset > fieldset label.input-non-radio input {
-        width: 100%;
-        margin: .55rem 0 0;
+  
+  main form > fieldset > fieldset label.input-non-radio input {
+    width: 100%;
+    margin: .55rem 0 0;
     }
-
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
+  
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
     }
-
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div div {
-        flex-direction: row;
+  
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div div {
+    flex-direction: row;
     }
-
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div div input {
-        flex-grow: 1;
+  
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div div input {
+    flex-grow: 1;
     }
-}
+  }
 
 @media (max-width: 380px) {
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div div {
-        flex-direction: column;
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div div {
+    flex-direction: column;
     }
-
-    main form > fieldset > fieldset > fieldset.big-address-fieldset div div div {
-        display: flex;
-        flex-direction: row;
+  
+  main form > fieldset > fieldset > fieldset.big-address-fieldset div div div {
+    display: flex;
+    flex-direction: row;
     }
-}
+  }
 
 
 /* INPUT General */
 
 input, select {
-    margin: .25rem;
-    padding: .5rem .75rem;
-    font-family: NS Sans, sans-serif;
-    background-color: var(--cc-primary-contrast-color);
-    border: 1px solid var(--cc-black-50);
-    border-radius: .25rem;
-    accent-color: var(--cc-primary-color);
-    line-height: 1em;
-    color: var(--nes-color-text-heading);
-}
+  margin: .25rem;
+  padding: .5rem .75rem;
+  font-family: NS Sans, sans-serif;
+  line-height: 1em;
+  color: var(--nes-color-text-heading);
+  background-color: var(--cc-primary-contrast-color);
+  border: 1px solid var(--cc-black-50);
+  border-radius: .25rem;
+  accent-color: var(--cc-primary-color);
+  }
 
 select:focus-visible {
-    outline: 2px solid var(--cc-primary-color);
-}
+  outline: 2px solid var(--cc-primary-color);
+  }
 
 @media (min-width: 770px) {
-    input {
-        min-width: 40ch;
+  input {
+    min-width: 40ch;
     }
-}
+  }
 
 label.radio-check-box:focus-within {
-    accent-color: var(--cc-primary-color);
-    outline: 2px solid var(--cc-primary-color);
-    border: 1px solid var(--cc-primary-color);
-}
+  border: 1px solid var(--cc-primary-color);
+  outline: 2px solid var(--cc-primary-color);
+  accent-color: var(--cc-primary-color);
+  }
 
 input:focus-visible {
-    accent-color: var(--cc-primary-color);
-    outline: 2px solid var(--cc-primary-color);
-}
+  outline: 2px solid var(--cc-primary-color);
+  accent-color: var(--cc-primary-color);
+  }
 
 /*INPUT Specific*/
 
 .small, .datalistsmall {
-    min-width: 7.5rem;
-    width: 7.5rem;
-    max-width: 7.5rem;
-}
+  width: 7.5rem;
+  min-width: 7.5rem;
+  max-width: 7.5rem;
+  }
 
 @media (max-width: 770px) {
-    .small {
-        min-width: 5rem;
-        width: 5rem;
-        max-width: 5rem;
+  .small {
+    width: 5rem;
+    min-width: 5rem;
+    max-width: 5rem;
     }
-
-    .big-mobile {
-        min-width: 100%;
+  
+  .big-mobile {
+    min-width: 100%;
     }
-}
+  }
 
