@@ -20,4 +20,4 @@ In week twee heb ik de eerste opzet voor de HTML gemaakt en een groot deel van d
 achter een probleem gekomen. Mobile werd erg slecht ondersteund. Zie week drie. Maar hierin heb ik vooral de basis
 neergezet hoe ik mijn HTML.
 
-<iframe src='https://quintenkok.nl/maps' />  
+<iframe src='https://quintenkok.nl/maps'></iframe>  
